@@ -1,0 +1,16 @@
+body {
+  font-family: 'Pretendard', sans-serif; /* 폰트 적용 */
+  background-color: #f5f5f5; /* 배경색(선택사항) */
+}
+
+h1 {
+  color: red; /* 빨간색 */
+}
+
+h2 {
+  color: blue; /* 파란색 */
+}
+
+h3 {
+  color: green; /* 초록색 */
+}
