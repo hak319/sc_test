@@ -1,23 +1,36 @@
-const toggleBtn = document.getElementById("darkToggle");
+function showSection(id) {
+  const sections = document.querySelectorAll('.section');
+  sections.forEach(s => {
+    s.classList.remove('active');
+    s.style.display = 'none';
+  });
+  const target = document.getElementById(id);
+  target.style.display = 'block';
+  setTimeout(() => {
+    target.classList.add('active');
+  }, 10);
 
-toggleBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  
-  // 버튼 아이콘 바꾸기
-  if (document.body.classList.contains("dark")) {
-    toggleBtn.textContent = "☀️";
-    localStorage.setItem("theme", "dark");
-  } else {
-    toggleBtn.textContent = "🌙";
-    localStorage.setItem("theme", "light");
-  }
-});
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-// 새로고침 시 이전 테마 유지
-window.addEventListener("DOMContentLoaded", () => {
-  const theme = localStorage.getItem("theme");
-  if (theme === "dark") {
-    document.body.classList.add("dark");
-    toggleBtn.textContent = "☀️";
+function showWorkImage(imgElement) {
+  const fullImgUrl = imgElement.getAttribute('data-full') || imgElement.src;
+  const modal = document.getElementById('workImageModal');
+  const img = document.getElementById('workImage');
+
+  if (fullImgUrl) {
+    img.src = fullImgUrl;
+    modal.style.display = 'flex';
   }
-});
+}
+
+
+function closeWorkImage() {
+  const modal = document.getElementById('workImageModal');
+  modal.style.display = 'none';
+}
+
+
+function toggleDarkMode() {
+  document.body.classList.toggle('dark');
+}
